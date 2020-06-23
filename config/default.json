@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://blewie144:i0JeD2iFP8o5Rzi0@cluster0-zobub.mongodb.net/devconnector?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "Iv1.276695a93cc76861",
+  "githubSecret": "5c2f2faa73ed992b803a8fddedd2d26dbe572608"
 }
