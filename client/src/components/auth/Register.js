@@ -1,7 +1,12 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+// Bring in redux action
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ({ setAlert, register }) => {
   // intial state variable, function used to update state
   const [formData, setFormData] = useState({
     // initial state
@@ -21,9 +26,11 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      console.log('Passwords do not match');
+      // Pass in 'Passwords do not match' as the msg for the alert.js
+      // and the alert type 'danger'
+      setAlert('Passwords do not match', 'danger');
     } else {
-      console.log('SUCCESS');
+      register({ name, email, password });
     }
   };
   return (
@@ -89,4 +96,10 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+};
+
+// Bring in action that we imported from above
+export default connect(null, { setAlert, register })(Register);
