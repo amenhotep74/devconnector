@@ -12,8 +12,8 @@ const User = require('../../models/User');
 // @desc Test route
 router.get('/', auth, async (req, res) => {
   try {
-    // find user with id extracted from the JWT payload in middleware auth, dont return password.
-    const user = await (await User.findById(req.user.id)).select('-password');
+    // Find user with id extracted from the JWT payload in middleware auth, dont return password.
+    const user = await User.findById(req.user.id).select('-password');
     res.json(user);
   } catch (err) {
     console.error(err.message);
