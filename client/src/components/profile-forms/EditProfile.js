@@ -47,7 +47,7 @@ const EditProfile = ({
       linkedin: loading || !profile.social ? '' : profile.social.linkedin,
     });
     // when it loads thats when this should run
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const {
     company,

@@ -17,7 +17,7 @@ const Dashboard = ({
   // Call getCurrentProfile when component mounts
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
   // if profile is null and loading is true show the spinner
   return loading && profile === null ? (
     <Spinner />

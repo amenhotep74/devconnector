@@ -9,7 +9,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   // As soon as it loads
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
 
   return (
     <Fragment>
